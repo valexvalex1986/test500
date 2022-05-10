@@ -1,0 +1,12 @@
+# Config for the unattended-upgrades run to avoid failing on battery power or
+# a metered connection.
+Unattended-Upgrade::OnlyOnACPower "false";
+Unattended-Upgrade::Skip-Updates-On-Metered-Connections "true";
+# A copy of the current default unattended-upgrades config to grab
+# security.
+Unattended-Upgrade::Allowed-Origins {
+        "${distro_id}:${distro_codename}";
+        "${distro_id}:${distro_codename}-security";
+        "${distro_id}ESMApps:${distro_codename}-apps-security";
+        "${distro_id}ESM:${distro_codename}-infra-security";
+};
